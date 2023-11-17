@@ -26,4 +26,43 @@ class Patient
         $this->medecinReferrant = $medecinReferrant;
     }
 
+    public function getEtatCivil(): EtatCivil
+    {
+        return $this->etatCivil;
+    }
+
+    public function getAdresse(): string
+    {
+        return $this->adresse;
+    }
+
+    public function getCodePostal(): int
+    {
+        return $this->codePostal;
+    }
+
+    public function getVille(): string
+    {
+        return $this->ville;
+    }
+
+    public function getDateNaissance(): string
+    {
+        return $this->dateNaissance;
+    }
+
+    public function getLieuNaissance(): string
+    {
+        return $this->lieuNaissance;
+    }
+
+    public function getNss(): int
+    {
+        return $this->nss;
+    }
+
+    public function getMedecinReferrant(): ?Medecin
+    {
+        return $this->medecinReferrant;
+    }
 }

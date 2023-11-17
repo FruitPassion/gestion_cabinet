@@ -7,4 +7,8 @@ class Medecin
     public function __construct(EtatCivil $etatCivil){
         $this->etatCivil = $etatCivil;
     }
+
+    public function getEtatCivil() : EtatCivil {
+      return $this->etatCivil;
+    }
 }

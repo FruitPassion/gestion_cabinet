@@ -12,4 +12,17 @@ class EtatCivil
         $this->nom = $nom;
         $this->prenom = $prenom;
     }
+
+    public function getCivilite() : bool  {
+      return $this->civilite;
+    }
+    
+    public function getNom() : string {
+      return $this->nom;
+
+    }
+
+    public function getPrenom() : string{
+      return $this->prenom;
+    }
 }
