@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr" data-bs-theme="dark">
 
-<?php include 'partial/head.php'; ?>
+<?php include 'view/partial/head.php'; ?>
 
 <body>
 
-<?php include 'partial/nav.php'; ?>
+<?php include 'view/partial/nav.php'; ?>
 
 <form action="affichage.php" method="post">
     <p>Utilisateur :</p>
@@ -13,6 +13,6 @@
     <input type="submit" value="afficher">
 </form>
 
-<?php include 'partial/footer.php'; ?>
+<?php include 'view/partial/footer.php'; ?>
 
 </html>
