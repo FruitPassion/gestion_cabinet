@@ -9,9 +9,9 @@
 
 <?php
 $abs = $_SERVER['DOCUMENT_ROOT'];
-include_once($abs."/gestion_cabinet/oop_data/EtatCivil.class.php");
-include_once($abs."/gestion_cabinet/oop_data/Medecin.class.php");
-include_once($abs."/gestion_cabinet/oop_data/Patient.class.php");
+include_once($abs."/gestion_cabinet/controller/EtatCivil.class.php");
+include_once($abs."/gestion_cabinet/controller/Medecin.class.php");
+include_once($abs."/gestion_cabinet/controller/Patient.class.php");
 
 $medeta = new EtatCivil(true, "doctor", "who");
 $med = new Medecin($medeta, "tardis", "tardis", "tardis", "tarpin longtemps", "unknown", -1);
