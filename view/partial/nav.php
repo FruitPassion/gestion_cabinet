@@ -15,11 +15,10 @@
                 </li>
 
             </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Chercher utilisateur en BD" aria-label="Search">
+            <form action="affichage.php" method="post" class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Chercher utilisateur en BD" aria-label="Search" name="search">
                 <input class="btn btn-outline-success"  type="submit" value="Medecin" name="nom_med">
                 <input class="btn btn-outline-success"  type="submit" value="Patient" name="nom_user">
-
             </form>
         </div>
     </div>

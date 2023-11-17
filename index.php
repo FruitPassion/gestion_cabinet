@@ -7,12 +7,6 @@
 
 <?php include 'view/partial/nav.php'; ?>
 
-<form action="affichage.php" method="post">
-    <p>Utilisateur :</p>
-    <input type="text" name="nom_user"><br>
-    <input type="submit" value="afficher">
-</form>
-
 <?php include 'view/partial/footer.php'; ?>
 
 </html>

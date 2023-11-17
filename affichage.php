@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr" data-bs-theme="dark">
 
-<?php include 'partial/head.php'; ?>
+<?php include 'view/partial/head.php'; ?>
 
 <body>
 
-<?php include 'partial/nav.php'; ?>
+<?php include 'view/partial/nav.php'; ?>
 
 <?php
 $abs = $_SERVER['DOCUMENT_ROOT'];
@@ -20,24 +20,24 @@ $usr = new Patient($eta, "25 rue du toz", "69690", "hamood land", "1 janvier 196
 $usr->definirReferant($med);
 
 function afficherMed(){
-  echo "affichage du medecin : ".$_POST["nom_med"]."<br>";
+  echo "affichage du medecin : ".$_POST["search"]."<br>";
 }
 
 function afficherPat($u){
-  if ($_POST['nom_user'] != $u->getEtatCivil()->getNom()){
+  if ($_POST['search'] != $u->getEtatCivil()->getNom()){
     echo 'utilisateur inexistant<br><a href="/">retour au menu</a>';
     return;
   }
 
-  echo "affichage de l'utilisateur : ".$_POST["nom_user"]."<br>";
+  echo "affichage de l'utilisateur : ".$_POST["search"]."<br>";
 
   //$medref = $u->getMedecinReferrant->getEtatCivil->getNom();
   $medref = "hatoz";
 
   echo '<form action="affichage.php" method="post">';
   echo '<p>Afficher son medecin :</p>';
-  echo '<input type="text" readonly name="nom_med" value="'.$medref.'">';
-  echo '<input type="submit" value="afficher">';
+  echo '<input type="text" readonly name="search" value="'.$medref.'">';
+  echo '<input type="submit" value="afficher" name="nom_med">';
   echo '</form>';
 }
 
