@@ -19,7 +19,12 @@ $eta = new EtatCivil(true, "hamood", "de bourpalette");
 $usr = new Patient($eta, "25 rue du toz", "69690", "hamood land", "1 janvier 1969", "a l'hopital", 6969696969);
 $usr->definirReferant($med);
 
-function afficherMed(){
+function afficherMed($m){
+  if ($_POST['search'] != $m->getEtatCivil()->getNom()){
+    echo 'medecin inexistant<br><a href="/">retour au menu</a>';
+    return;
+  }
+
   echo "affichage du medecin : ".$_POST["search"]."<br>";
 }
 
@@ -31,8 +36,7 @@ function afficherPat($u){
 
   echo "affichage de l'utilisateur : ".$_POST["search"]."<br>";
 
-  //$medref = $u->getMedecinReferrant->getEtatCivil->getNom();
-  $medref = "hatoz";
+  $medref = $u->getMedecinReferrant()->getEtatCivil()->getNom();
 
   echo '<form action="affichage.php" method="post">';
   echo '<p>Afficher son medecin :</p>';
@@ -44,13 +48,11 @@ function afficherPat($u){
 if (isset($_POST['nom_user'])){
   afficherPat($usr);
 } else if (isset($_POST['nom_med'])){
-  afficherMed();
+  afficherMed($med);
 }else{
   header("location: index.php");
   exit(1);
 }
-
-include_once("./partial/footer.php")
 ?>
 
 <?php include 'partial/footer.php'; ?>
