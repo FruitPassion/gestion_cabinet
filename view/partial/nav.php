@@ -17,12 +17,34 @@
                     <a class="nav-link active" aria-current="page" href="/gestion_cabinet/?action=AffichageMedecins">Médecins</a>
                 </li>
             </ul>
-            <form action="" method="post" class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Chercher utilisateur"
-                       aria-label="Search" name="search">
-                <input class="btn btn-outline-success" type="submit" value="Medecin" name="nom_med">
-                <input class="btn btn-outline-success" type="submit" value="Patient" name="nom_user">
-            </form>
+            <div class="d-flex">
+                <form action="" method="post" class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Chercher utilisateur"
+                           aria-label="Search" name="search">
+                    <input class="btn btn-outline-success" type="submit" value="Medecin" name="nom_med">
+                    <input class="btn btn-outline-success" type="submit" value="Patient" name="nom_user">
+                </form>
+                <div class="dropdown mx-3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownTheme"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        Changer de thème
+                    </button>
+                    <form method="post">
+                        <ul class="dropdown-menu" aria-labelledby="dropdownTheme">
+                            <li id="theme-clair">
+                                <button type="submit" name="clair" class="dropdown-item">
+                                    <i class="fa fa-sun-o" aria-hidden="true"></i> Theme clair
+                                </button>
+                            </li>
+                            <li id="theme-sombre">
+                                <button type="submit" name="sombre" class="dropdown-item">
+                                    <i class="fa fa-moon-o" aria-hidden="true"></i> Theme Sombre
+                                </button>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </nav>

@@ -4,5 +4,4 @@ firstBlockBody();
 ?>
 
 
-
 <?php secondBlockBody();?>
