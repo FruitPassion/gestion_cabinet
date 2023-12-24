@@ -16,4 +16,6 @@ class RendezVous
         $this->heure = $heure;
         $this->duree = $duree;
     }
+
+
 }

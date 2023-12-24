@@ -61,8 +61,13 @@ class Patient
         return $this->nss;
     }
 
-    public function getMedecinReferrant(): ?Medecin
+    public function getMedecinReferrant(): Medecin
     {
         return $this->medecinReferrant;
+    }
+
+
+    public function __destruct() {
+        return ('suppression: '. $this->etatCivil->getNom() . " " . $this->etatCivil->getPrenom(). PHP_EOL);
     }
 }
