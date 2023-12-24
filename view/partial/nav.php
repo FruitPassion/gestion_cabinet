@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/gestion_cabinet/index.php?action=Index">
+        <a class="navbar-brand" href="/gestion_cabinet/?action=Index">
             <img src="/gestion_cabinet/static/images/logo.png" alt="logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -18,7 +18,7 @@
                 </li>
 
             </ul>
-            <form action="/gestion_cabinet/index.php?action=Affichage" method="post" class="d-flex" role="search">
+            <form action="/gestion_cabinet/?action=Affichage" method="post" class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Chercher utilisateur"
                        aria-label="Search" name="search">
                 <input class="btn btn-outline-success" type="submit" value="Medecin" name="nom_med">
