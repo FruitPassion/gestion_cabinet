@@ -1,13 +1,7 @@
-<?php
-$rootDir = realpath($_SERVER["DOCUMENT_ROOT"]) . '/gestion_cabinet/'; ?>
-<!DOCTYPE html>
-<html lang="fr" data-bs-theme="dark">
-
-<?php require $rootDir . "view/partial/head.php"; ?>
-
-<body>
-
-<?php require $rootDir . "view/partial/nav.php"; ?>
+<?php $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]) . "/gestion_cabinet/";
+include $rootDir."view/BaseView.php";
+firstBlockBody();
+?>
 
 <div class="d-flex align-items-center justify-content-center vh-100">
     <div class="text-center">
@@ -21,6 +15,4 @@ $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]) . '/gestion_cabinet/'; ?>
     </div>
 </div>
 
-<?php include $rootDir . "view/partial/footer.php"; ?>
-
-</html>
+<?php secondBlockBody();?>
