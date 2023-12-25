@@ -17,5 +17,24 @@ class RendezVous
         $this->duree = $duree;
     }
 
+    public function getMedecin() : Medecin {
+        return $this->medecin;
+    }
+
+    public function getPatient() : Patient{
+        return $this->patient;
+    }
+
+    public function getDate() : string {
+        return $this->date;
+    }
+
+    public function getHeure() : string{
+        return $this->heure;
+    }
+
+    public function getDuree() : int{
+        return $this->duree;
+    }
 
 }
