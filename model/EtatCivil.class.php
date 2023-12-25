@@ -7,22 +7,34 @@ class EtatCivil
     private string $prenom;
 
 
-    public function __construct(bool $civilite, string $nom, string $prenom){
+    public function __construct(bool $civilite, string $nom, string $prenom)
+    {
         $this->civilite = $civilite;
         $this->nom = $nom;
         $this->prenom = $prenom;
     }
 
-    public function getCivilite() : bool  {
-      return $this->civilite;
+    public function getCivilite(): string
+    {
+        if ($this->civilite) {
+            return "Madame";
+        } else {
+            return "Monsieur";
+        }
     }
-    
-    public function getNom() : string {
-      return $this->nom;
+
+    public function getNomPrenom(): string{
+        return $this->getNom() . " " . $this->getPrenom();
+    }
+
+    public function getNom(): string
+    {
+        return $this->nom;
 
     }
 
-    public function getPrenom() : string{
-      return $this->prenom;
+    public function getPrenom(): string
+    {
+        return $this->prenom;
     }
 }

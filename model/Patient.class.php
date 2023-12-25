@@ -2,6 +2,7 @@
 
 class Patient
 {
+    private int $id;
     private EtatCivil $etatCivil;
     private string $adresse;
     private int $codePostal;
@@ -11,8 +12,9 @@ class Patient
     private int $nss;
     private Medecin $medecinReferrant;
 
-    public function __construct(EtatCivil $etatCivil, string $adresse, int $codePostal, string $ville,
+    public function __construct(int $id, EtatCivil $etatCivil, string $adresse, int $codePostal, string $ville,
                                 string $dateNaissance, string $lieuNaissance, int $nss) {
+        $this->id = $id;
         $this->etatCivil = $etatCivil;
         $this->adresse = $adresse;
         $this->codePostal = $codePostal;
@@ -22,8 +24,17 @@ class Patient
         $this->nss = $nss;
     }
 
+    public function getAddresseComplete(): string{
+        return $this->adresse . ", " . $this->codePostal . ", " . $this->ville;
+    }
+
     public function definirReferant(Medecin $medecinReferrant) : void {
         $this->medecinReferrant = $medecinReferrant;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 
     public function getEtatCivil(): EtatCivil
