@@ -23,6 +23,7 @@ firstBlockBody();
                 <input type="search" oninput="chercher_element(this)" class="form-control rounded"
                        placeholder="Philippe Durand ..." aria-label="Search" aria-describedby="search-addon"/>
             </div>
+            <h4 class="text-center mt-4" id="aucun_element" style="display: none">Aucun medecin ne correspond à votre recherche</h4>
             <div class="d-flex flex-wrap justify-content-center p-3">
                 <?php foreach ($this->medecins as $medecin): ?>
                     <div class="card m-3" style="width: 18rem;">

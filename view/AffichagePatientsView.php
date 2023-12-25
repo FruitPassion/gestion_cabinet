@@ -22,6 +22,7 @@ firstBlockBody();
                 <input type="search" oninput="chercher_element(this)" class="form-control rounded"
                        placeholder="Philippe Durand ..." aria-label="Search" aria-describedby="search-addon"/>
             </div>
+            <h4 class="text-center mt-4" id="aucun_element" style="display: none">Aucun patient ne correspond à votre recherche</h4>
             <div class="d-flex flex-wrap justify-content-center p-3">
                 <?php foreach ($this->patients as $patient): ?>
                     <div class="card m-3" style="width: 18rem;">
@@ -64,7 +65,7 @@ firstBlockBody();
                 <div class="d-flex w-100">
                     <div class="mb-3 px-3 w-50">
                         <label for="codePostalInput" class="form-label">Code Postal :</label>
-                        <input required type="number" maxlength="5" minlength="5" class="form-control"
+                        <input required type="number" max="999999" min="11111" maxlength="5" minlength="5" class="form-control"
                                id="codePostalInput" aria-describedby="codePostal">
                     </div>
                     <div class="mb-3 px-3 w-50">
@@ -86,7 +87,7 @@ firstBlockBody();
                 <div class="d-flex w-100">
                     <div class="mb-3 px-3 w-50">
                         <label for="nssInput" class="form-label">Numéro de sécurité sociale :</label>
-                        <input required type="number" maxlength="15" minlength="15" class="form-control"
+                        <input required type="number" min="0" maxlength="15" minlength="15" class="form-control"
                                id="nssInput" aria-describedby="nss">
                     </div>
                     <div class="mb-3 px-3 w-50">
