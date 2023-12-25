@@ -18,6 +18,7 @@ session_start();
 if (!isset($_SESSION['theme'])) {
     $_SESSION['theme'] = 'dark';
 }
+
 /* On recupere le theme */
 if (isset($_POST['clair'])) {
     $_SESSION['theme'] = 'light';
@@ -33,9 +34,9 @@ if (isset($action_list[0])) {
     $controller_name = $action_list[0] . 'Controller';
 
     try {
-        require 'controller/'. $controller_name . '.php';
+        require 'controller/'. $controller_name . '.class.php';
         /* On instancie le controleur */
-        $controller = new $controller_name;
+        $controller = new $controller_name($_POST);
     } catch (Error $e) {
          echo ($e->getMessage());
         /*Redirect('?action=Erreur', false); */

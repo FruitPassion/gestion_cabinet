@@ -1,9 +1,9 @@
 <?php
 $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
-require $rootDir . "/controller/Controller.php";
+require $rootDir . "/controller/Controller.class.php";
 class IndexController extends Controller
 {
-    function __construct(){
+    function __construct(array $post){
         parent::__construct();
 
         $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);

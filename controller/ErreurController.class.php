@@ -1,10 +1,10 @@
 <?php
 $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
-require $rootDir . "/controller/Controller.php";
+require $rootDir . "/controller/Controller.class.php";
 
 class ErreurController extends Controller
 {
-    function __construct()
+    function __construct(array $post)
     {
         parent::__construct();
 

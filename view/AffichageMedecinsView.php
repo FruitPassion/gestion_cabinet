@@ -31,7 +31,10 @@ firstBlockBody();
                         <div class="card-body">
                             <h5 class="card-title"><?= $medecin->getEtatCivil()->getNomPrenom() ?></h5>
                             <h6 class="card-subtitle mb-2 text-muted"><?= $medecin->getEtatCivil()->getCivilite(); ?></h6>
-                            <a href="#" class="card-link bottom-0">Voir les détails</a>
+                            <form method="post"  action="/?action=VisualisationMedecin">
+                                <input type="hidden" name="id_medecin" value="<?= $medecin->getId() ?>">
+                                <button type="submit" class="btn btn-primary">Voir les détails</button>
+                            </form>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -39,7 +42,8 @@ firstBlockBody();
         </div>
         <div class="tab-pane fade" id="ajouter" role="tabpanel" aria-labelledby="ajouter-tab">
             <h3 class="text-center mt-4">Ajouter un medecin :</h3>
-            <form class="w-75 mx-auto my-4" method="post" action="/controller/AjouterMedecinController.php">
+            <form class="w-75 mx-auto my-4" method="post" action="/controller/GererMedecinController.class.php">
+                <input type="hidden" name="action" id="action" value="ajouter">
                 <div class="d-flex w-100">
                     <div class="mb-3 px-3 w-50">
                         <label for="nomInput" class="form-label">Nom :</label>

@@ -26,14 +26,21 @@ class Controller
         }
     }
 
-    protected function select($sql, $data = null): false|array
+    protected function selectFirst($sql, $data = null): false|array
+    {
+        $this->stmt = $this->pdo->prepare($sql);
+        $this->stmt->execute($data);
+        return $this->stmt->fetch();
+    }
+
+    protected function selectAll($sql, $data = null): false|array
     {
         $this->stmt = $this->pdo->prepare($sql);
         $this->stmt->execute($data);
         return $this->stmt->fetchAll();
     }
 
-    protected function insertOrUpdate($sql, $data = null): void
+    protected function insertUpdateDelete($sql, $data = null): void
     {
         $this->stmt = $this->pdo->prepare($sql);
         $this->stmt->execute($data);

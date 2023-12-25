@@ -28,6 +28,10 @@ class Patient
         return $this->adresse . ", " . $this->codePostal . ", " . $this->ville;
     }
 
+    public function checkReferant(): bool{
+        return isset($this->medecinReferrant);
+    }
+
     public function definirReferant(Medecin $medecinReferrant) : void {
         $this->medecinReferrant = $medecinReferrant;
     }

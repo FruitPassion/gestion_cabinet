@@ -1,13 +1,13 @@
 <?php
 $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
-require $rootDir . "/controller/Controller.php";
+require $rootDir . "/controller/Controller.class.php";
 
 class AffichagePatientsController extends Controller
 {
     private array $patients;
     private array $medecins;
 
-    public function __construct()
+    public function __construct(array $post)
     {
         parent::__construct();
         $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
@@ -24,7 +24,7 @@ class AffichagePatientsController extends Controller
 
     private function construirePatients(): void
     {
-        $results = $this->select(
+        $results = $this->selectAll(
             "SELECT * FROM Patient as p;"
         );
         $this->patients = [];
@@ -42,7 +42,7 @@ class AffichagePatientsController extends Controller
 
     private function construireMedecins(): void
     {
-        $results = $this->select(
+        $results = $this->selectAll(
             "SELECT * FROM Medecin as m;"
         );
         $this->medecins = [];

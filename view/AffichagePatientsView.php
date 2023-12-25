@@ -31,7 +31,10 @@ firstBlockBody();
                             <h5 class="card-title"><?= $patient->getEtatCivil()->getNomPrenom() ?></h5>
                             <h6 class="card-subtitle mb-2 text-muted"><?= $patient->getEtatCivil()->getCivilite(); ?></h6>
                             <p class="card-text"><?= $patient->getAddresseComplete() ?></p>
-                            <a href="#" class="card-link bottom-0">Voir les détails</a>
+                            <form method="post"  action="/?action=VisualisationPatient">
+                                <input type="hidden" name="id_patient" value="<?= $patient->getId() ?>">
+                                <button type="submit" class="btn btn-primary">Voir les détails</button>
+                            </form>
                         </div>
                     </div>
                 <?php endforeach; ?>
@@ -39,7 +42,8 @@ firstBlockBody();
         </div>
         <div class="tab-pane fade" id="ajouter" role="tabpanel" aria-labelledby="ajouter-tab">
             <h3 class="text-center mt-4">Ajouter un patient :</h3>
-            <form class="w-75 mx-auto my-4" method="post" action="/controller/AjouterPatientController.php">
+            <form class="w-75 mx-auto my-4" method="post" action="/controller/GererPatientController.class.php">
+                <input type="hidden" name="action" id="action" value="ajouter">
                 <div class="d-flex w-100">
                     <div class="mb-3 px-3 w-50">
                         <label for="nomInput" class="form-label">Nom :</label>
@@ -103,6 +107,7 @@ firstBlockBody();
                         <label for="medecinInput" class="form-label">Medecin referrant:</label>
                         <select class="form-select" name="medecinInput" id="medecinInput"
                                 aria-label="selectionner medecin">
+                            <option selected value="null">Aucun</option>
                             <?php foreach ($this->medecins as $medecin): ?>
                                 <option value="<?= $medecin->getId() ?>"><?= $medecin->getEtatCivil()->getNomPrenom() ?></option>
                             <?php endforeach; ?>
