@@ -1,5 +1,5 @@
 <?php
-$rootDir = realpath($_SERVER["DOCUMENT_ROOT"]) . '/gestion_cabinet/';
+$rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
 function firstBlockBody(){
     global $rootDir;
     echo '<!DOCTYPE html>';

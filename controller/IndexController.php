@@ -4,9 +4,9 @@ class IndexController {
 
     function __construct(){
 
-        $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]) . '/gestion_cabinet/';
+        $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
 
-        require $rootDir.'view/IndexView.php';
+        require $rootDir.'/view/IndexView.php';
 
     }
 

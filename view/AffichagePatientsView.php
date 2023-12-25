@@ -1,5 +1,5 @@
-<?php $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]) . "/gestion_cabinet/";
-include $rootDir . "view/BaseView.php";
+<?php $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
+include $rootDir . "/view/BaseView.php";
 firstBlockBody();
 ?>
     <ul class="nav nav-tabs pt-5" id="myTab" role="tablist">
@@ -104,6 +104,6 @@ firstBlockBody();
         </div>
     </div>
 
-    <script src="/gestion_cabinet/static/js/chercher-element.js" defer></script>
+    <script src="/static/js/chercher-element.js" defer></script>
 
 <?php secondBlockBody(); ?>
