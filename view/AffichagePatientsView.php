@@ -47,13 +47,13 @@ firstBlockBody();
                 <div class="d-flex w-100">
                     <div class="mb-3 px-3 w-50">
                         <label for="nomInput" class="form-label">Nom :</label>
-                        <input required type="text" class="form-control" name="nomInput" id="nomInput"
-                               aria-describedby="nom">
+                        <input required type="text" class="form-control a-verifier" name="nomInput" id="nomInput"
+                               aria-describedby="nom" oninput="activerModification()">
                     </div>
                     <div class="mb-3 px-3 w-50">
                         <label for="prenomInput" class="form-label">Prenom :</label>
-                        <input required type="text" class="form-control" name="prenomInput" id="prenomInput"
-                               aria-describedby="prenom">
+                        <input required type="text" class="form-control a-verifier" name="prenomInput" id="prenomInput"
+                               aria-describedby="prenom" oninput="activerModification()">
                     </div>
                 </div>
                 <div class="d-flex w-100">
@@ -67,41 +67,42 @@ firstBlockBody();
                     </div>
                     <div class="mb-3 px-3 w-50">
                         <label for="adresseInput" class="form-label">Adresse :</label>
-                        <input required type="text" class="form-control" name="adresseInput" id="adresseInput"
-                               aria-describedby="adresse">
+                        <input required type="text" class="form-control a-verifier" name="adresseInput" id="adresseInput"
+                               aria-describedby="adresse" oninput="activerModification()">
                     </div>
                 </div>
                 <div class="d-flex w-100">
                     <div class="mb-3 px-3 w-50">
                         <label for="codePostalInput" class="form-label">Code Postal :</label>
                         <input required type="number" max="999999" min="11111" maxlength="5" minlength="5"
-                               class="form-control"
-                               name="codePostalInput" id="codePostalInput" aria-describedby="codePostal">
+                               class="form-control a-verifier" name="codePostalInput" id="codePostalInput"
+                               aria-describedby="codePostal" oninput="activerModification()">
                     </div>
                     <div class="mb-3 px-3 w-50">
                         <label for="villeInput" class="form-label">Ville :</label>
-                        <input required type="text" class="form-control" name="villeInput" id="villeInput"
-                               aria-describedby="ville">
+                        <input required type="text" class="form-control a-verifier" name="villeInput" id="villeInput"
+                               aria-describedby="ville" oninput="activerModification()">
                     </div>
                 </div>
                 <div class="d-flex w-100">
                     <div class="mb-3 px-3 w-50">
                         <label for="ddnInput" class="form-label">Date de naissance :</label>
-                        <input required type="date" class="form-control" name="ddnInput" id="ddnInput"
-                               aria-describedby="ddn">
+                        <input required type="date" class="form-control a-verifier" name="ddnInput" id="ddnInput"
+                               aria-describedby="ddn" oninput="activerModification()">
                     </div>
                     <div class="mb-3 px-3 w-50">
                         <label for="lieuNaissanceInput" class="form-label">Lieu de naissance :</label>
-                        <input required type="text" class="form-control" name="lieuNaissanceInput"
-                               id="lieuNaissanceInput"
-                               aria-describedby="lieuNaissance">
+                        <input required type="text" class="form-control a-verifier" name="lieuNaissanceInput"
+                               id="lieuNaissanceInput" aria-describedby="lieuNaissance"
+                               oninput="activerModification()">
                     </div>
                 </div>
                 <div class="d-flex w-100">
                     <div class="mb-3 px-3 w-50">
                         <label for="nssInput" class="form-label">Numéro de sécurité sociale :</label>
-                        <input required type="number" min="0" maxlength="15" minlength="15" class="form-control"
-                               name="nssInput" id="nssInput" aria-describedby="nss">
+                        <input required type="number" min="0" maxlength="15" minlength="15" class="form-control a-verifier"
+                               name="nssInput" id="nssInput" aria-describedby="nss"
+                               oninput="activerModification()">
                     </div>
                     <div class="mb-3 px-3 w-50">
                         <label for="medecinInput" class="form-label">Medecin referrant:</label>
@@ -114,11 +115,12 @@ firstBlockBody();
                         </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary form-control my-3">Envoyer</button>
+                <button disabled id="btn-validation" type="submit" class="btn btn-primary form-control my-3">Envoyer</button>
             </form>
         </div>
     </div>
 
     <script src="/static/js/chercher-element.js" defer></script>
+    <script src="/static/js/verifier-elements-valides.js" defer></script>
 
 <?php secondBlockBody(); ?>

@@ -47,13 +47,13 @@ firstBlockBody();
                 <div class="d-flex w-100">
                     <div class="mb-3 px-3 w-50">
                         <label for="nomInput" class="form-label">Nom :</label>
-                        <input required type="text" name="nomInput" class="form-control" id="nomInput"
-                               aria-describedby="nom">
+                        <input required type="text" name="nomInput" class="form-control a-verifier" id="nomInput"
+                               aria-describedby="nom" oninput="activerModification()">
                     </div>
                     <div class="mb-3 px-3 w-50">
                         <label for="prenomInput" class="form-label">Prenom :</label>
-                        <input required type="text" name="prenomInput" class="form-control" id="prenomInput"
-                               aria-describedby="prenom">
+                        <input required type="text" name="prenomInput" class="form-control a-verifier" id="prenomInput"
+                               aria-describedby="prenom" oninput="activerModification()">
                     </div>
                 </div>
                 <div class="mb-3 px-3">
@@ -63,11 +63,12 @@ firstBlockBody();
                         <option value="1">Madame</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary form-control my-3">Envoyer</button>
+                <button disabled id="btn-validation" type="submit" class="btn btn-primary form-control my-3">Envoyer</button>
             </form>
         </div>
     </div>
 
     <script src="/static/js/chercher-element.js" defer></script>
+    <script src="/static/js/verifier-elements-valides.js" defer></script>
 
 <?php secondBlockBody(); ?>
