@@ -81,6 +81,17 @@ class Patient
         return $this->medecinReferrant;
     }
 
+    /**
+     * @throws Exception
+     */
+    public function getAge(): int
+    {
+        $dateNaissance = new DateTime($this->dateNaissance);
+        $dateActuelle = new DateTime();
+        $interval = $dateNaissance->diff($dateActuelle);
+        return $interval->y;
+    }
+
 
     public function __destruct() {
         return ('suppression: '. $this->etatCivil->getNom() . " " . $this->etatCivil->getPrenom(). PHP_EOL);
