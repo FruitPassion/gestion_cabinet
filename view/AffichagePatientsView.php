@@ -22,7 +22,8 @@ firstBlockBody();
                 <input type="search" oninput="chercher_element(this)" class="form-control rounded"
                        placeholder="Philippe Durand ..." aria-label="Search" aria-describedby="search-addon"/>
             </div>
-            <h4 class="text-center mt-4" id="aucun_element" style="display: none">Aucun patient ne correspond à votre recherche</h4>
+            <h4 class="text-center mt-4" id="aucun_element" style="display: none">Aucun patient ne correspond à votre
+                recherche</h4>
             <div class="d-flex flex-wrap justify-content-center p-3">
                 <?php foreach ($this->patients as $patient): ?>
                     <div class="card m-3" style="width: 18rem;">
@@ -38,49 +39,57 @@ firstBlockBody();
         </div>
         <div class="tab-pane fade" id="ajouter" role="tabpanel" aria-labelledby="ajouter-tab">
             <h3 class="text-center mt-4">Ajouter un patient :</h3>
-            <form class="w-75 mx-auto my-4">
+            <form class="w-75 mx-auto my-4" method="post" action="/controller/AjouterPatientController.php">
                 <div class="d-flex w-100">
                     <div class="mb-3 px-3 w-50">
                         <label for="nomInput" class="form-label">Nom :</label>
-                        <input required type="text" class="form-control" id="nomInput" aria-describedby="nom">
+                        <input required type="text" class="form-control" name="nomInput" id="nomInput"
+                               aria-describedby="nom">
                     </div>
                     <div class="mb-3 px-3 w-50">
                         <label for="prenomInput" class="form-label">Prenom :</label>
-                        <input required type="text" class="form-control" id="prenomInput" aria-describedby="prenom">
+                        <input required type="text" class="form-control" name="prenomInput" id="prenomInput"
+                               aria-describedby="prenom">
                     </div>
                 </div>
                 <div class="d-flex w-100">
                     <div class="mb-3 px-3 w-50">
                         <label for="civiliteInput" class="form-label">Civilite :</label>
-                        <select class="form-select" id="civiliteInput" aria-label="selectionner civilite">
+                        <select class="form-select" id="civiliteInput" name="civiliteInput"
+                                aria-label="selectionner civilite">
                             <option selected value="0">Monsieur</option>
                             <option value="1">Madame</option>
                         </select>
                     </div>
                     <div class="mb-3 px-3 w-50">
                         <label for="adresseInput" class="form-label">Adresse :</label>
-                        <input required type="text" class="form-control" id="adresseInput" aria-describedby="adresse">
+                        <input required type="text" class="form-control" name="adresseInput" id="adresseInput"
+                               aria-describedby="adresse">
                     </div>
                 </div>
                 <div class="d-flex w-100">
                     <div class="mb-3 px-3 w-50">
                         <label for="codePostalInput" class="form-label">Code Postal :</label>
-                        <input required type="number" max="999999" min="11111" maxlength="5" minlength="5" class="form-control"
-                               id="codePostalInput" aria-describedby="codePostal">
+                        <input required type="number" max="999999" min="11111" maxlength="5" minlength="5"
+                               class="form-control"
+                               name="codePostalInput" id="codePostalInput" aria-describedby="codePostal">
                     </div>
                     <div class="mb-3 px-3 w-50">
                         <label for="villeInput" class="form-label">Ville :</label>
-                        <input required type="text" class="form-control" id="villeInput" aria-describedby="ville">
+                        <input required type="text" class="form-control" name="villeInput" id="villeInput"
+                               aria-describedby="ville">
                     </div>
                 </div>
                 <div class="d-flex w-100">
                     <div class="mb-3 px-3 w-50">
                         <label for="ddnInput" class="form-label">Date de naissance :</label>
-                        <input required type="date" class="form-control" id="ddnInput" aria-describedby="ddn">
+                        <input required type="date" class="form-control" name="ddnInput" id="ddnInput"
+                               aria-describedby="ddn">
                     </div>
                     <div class="mb-3 px-3 w-50">
                         <label for="lieuNaissanceInput" class="form-label">Lieu de naissance :</label>
-                        <input required type="text" class="form-control" id="lieuNaissanceInput"
+                        <input required type="text" class="form-control" name="lieuNaissanceInput"
+                               id="lieuNaissanceInput"
                                aria-describedby="lieuNaissance">
                     </div>
                 </div>
@@ -88,11 +97,12 @@ firstBlockBody();
                     <div class="mb-3 px-3 w-50">
                         <label for="nssInput" class="form-label">Numéro de sécurité sociale :</label>
                         <input required type="number" min="0" maxlength="15" minlength="15" class="form-control"
-                               id="nssInput" aria-describedby="nss">
+                               name="nssInput" id="nssInput" aria-describedby="nss">
                     </div>
                     <div class="mb-3 px-3 w-50">
                         <label for="medecinInput" class="form-label">Medecin referrant:</label>
-                        <select class="form-select" id="medecinInput" aria-label="selectionner medecin">
+                        <select class="form-select" name="medecinInput" id="medecinInput"
+                                aria-label="selectionner medecin">
                             <?php foreach ($this->medecins as $medecin): ?>
                                 <option value="<?= $medecin->getId() ?>"><?= $medecin->getEtatCivil()->getNomPrenom() ?></option>
                             <?php endforeach; ?>

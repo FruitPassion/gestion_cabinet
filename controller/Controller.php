@@ -1,12 +1,12 @@
 <?php
 
-class DB
+class Controller
 {
     public string $error = "";
     private ?PDO $pdo = null;
     private $stmt = null;
 
-    function __construct()
+    public function __construct()
     {
         $this->pdo = new PDO(
             "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET,
@@ -16,7 +16,7 @@ class DB
         ]);
     }
 
-    function __destruct()
+    public function __destruct()
     {
         if ($this->stmt !== null) {
             $this->stmt = null;
@@ -26,11 +26,23 @@ class DB
         }
     }
 
-    function select($sql, $data = null): false|array
+    protected function select($sql, $data = null): false|array
     {
         $this->stmt = $this->pdo->prepare($sql);
         $this->stmt->execute($data);
         return $this->stmt->fetchAll();
+    }
+
+    protected function insertOrUpdate($sql, $data = null): void
+    {
+        $this->stmt = $this->pdo->prepare($sql);
+        $this->stmt->execute($data);
+    }
+
+    protected function redirect($url, $permanent = false): void
+    {
+        header('Location: ' . $url, true, $permanent ? 301 : 302);
+        exit();
     }
 }
 

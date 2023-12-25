@@ -1,20 +1,29 @@
 <?php
+$rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
+require $rootDir . "/controller/Controller.php";
 
-#[AllowDynamicProperties] class AffichageMedecinsController {
+class AffichageMedecinsController extends Controller{
+    private array $medecins;
 
     function __construct(){
-        $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
+        parent::__construct();
 
-        require $rootDir."/model/DB.class.php";
+        $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
         require $rootDir."/model/EtatCivil.class.php";
         require $rootDir."/model/Medecin.class.php";
 
-        $_DB = new DB();
-        $this->results = $_DB->select(
+        $this->construireMedecins();
+
+        require $rootDir.'/view/AffichageMedecinsView.php';
+    }
+
+    private function construireMedecins(): void
+    {
+        $results = $this->select(
             "SELECT * FROM Medecin as m;"
         );
         $this->medecins = [];
-        foreach ($this->results as $medecin) {
+        foreach ($results as $medecin) {
             $etatCivil = new EtatCivil(
                 $medecin["civilite"],
                 $medecin["nom"],
@@ -22,8 +31,6 @@
             );
             $this->medecins[] = new Medecin($medecin["id_medecin"], $etatCivil);
         }
-
-        require $rootDir.'/view/AffichageMedecinsView.php';
     }
 
 }

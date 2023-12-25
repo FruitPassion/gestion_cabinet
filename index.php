@@ -37,8 +37,8 @@ if (isset($action_list[0])) {
         /* On instancie le controleur */
         $controller = new $controller_name;
     } catch (Error $e) {
-        echo ($e->getMessage());
-        /* Redirect('?action=Erreur', false); */
+         echo ($e->getMessage());
+        /*Redirect('?action=Erreur', false); */
     }
 }
 

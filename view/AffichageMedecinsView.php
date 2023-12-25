@@ -23,7 +23,8 @@ firstBlockBody();
                 <input type="search" oninput="chercher_element(this)" class="form-control rounded"
                        placeholder="Philippe Durand ..." aria-label="Search" aria-describedby="search-addon"/>
             </div>
-            <h4 class="text-center mt-4" id="aucun_element" style="display: none">Aucun medecin ne correspond à votre recherche</h4>
+            <h4 class="text-center mt-4" id="aucun_element" style="display: none">Aucun medecin ne correspond à votre
+                recherche</h4>
             <div class="d-flex flex-wrap justify-content-center p-3">
                 <?php foreach ($this->medecins as $medecin): ?>
                     <div class="card m-3" style="width: 18rem;">
@@ -38,20 +39,22 @@ firstBlockBody();
         </div>
         <div class="tab-pane fade" id="ajouter" role="tabpanel" aria-labelledby="ajouter-tab">
             <h3 class="text-center mt-4">Ajouter un medecin :</h3>
-            <form class="w-75 mx-auto my-4">
+            <form class="w-75 mx-auto my-4" method="post" action="/controller/AjouterMedecinController.php">
                 <div class="d-flex w-100">
                     <div class="mb-3 px-3 w-50">
                         <label for="nomInput" class="form-label">Nom :</label>
-                        <input required type="text" class="form-control" id="nomInput" aria-describedby="nom">
+                        <input required type="text" name="nomInput" class="form-control" id="nomInput"
+                               aria-describedby="nom">
                     </div>
                     <div class="mb-3 px-3 w-50">
                         <label for="prenomInput" class="form-label">Prenom :</label>
-                        <input required type="text" class="form-control" id="prenomInput" aria-describedby="prenom">
+                        <input required type="text" name="prenomInput" class="form-control" id="prenomInput"
+                               aria-describedby="prenom">
                     </div>
                 </div>
                 <div class="mb-3 px-3">
                     <label for="civiliteInput" class="form-label">Civilite :</label>
-                    <select class="form-select" id="civiliteInput" aria-label="selectionner civilite">
+                    <select class="form-select" name="civiliteInput" id="civiliteInput" aria-label="selectionner civilite">
                         <option selected value="0">Monsieur</option>
                         <option value="1">Madame</option>
                     </select>
