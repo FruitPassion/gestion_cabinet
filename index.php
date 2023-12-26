@@ -6,14 +6,27 @@ function Redirect($url, $permanent = false): void
     exit();
 }
 
+/* On demarre la session */
+session_start();
+
+/* On initialise l'utilisateur */
+if (!isset($_SESSION['user'])) {
+    $_SESSION['user'] = 'visiteur';
+    Redirect('?action=Login', false);
+}
+
+
 /* On recupere l'action */
 $action = $_GET['action'];
-if (!isset($action)){
+/* On verifie si l'utilisateur est connecte */
+if (!isset($action) && $_SESSION['user'] == 'visiteur'){
+    Redirect('?action=Login', false);
+} elseif (isset($action) && $action != 'Login' && $_SESSION['user'] == 'visiteur') {
+    Redirect('?action=Login', false);
+} elseif (!isset($action) && $_SESSION['user'] == 'user') {
     Redirect('?action=Index', false);
 }
 
-/* On demarre la session */
-session_start();
 /* On initialise le theme */
 if (!isset($_SESSION['theme'])) {
     $_SESSION['theme'] = 'dark';
@@ -25,6 +38,7 @@ if (isset($_POST['clair'])) {
 } elseif (isset($_POST['sombre'])) {
     $_SESSION['theme'] = 'dark';
 }
+
 
 /* Decoupe l'url en liste */
 $action_list = explode('/', $action);

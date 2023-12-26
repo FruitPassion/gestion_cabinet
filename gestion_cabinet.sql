@@ -43,6 +43,18 @@ CREATE TABLE RendezVous
     FOREIGN KEY (id_patient) REFERENCES Patient (id_patient)
 );
 
+CREATE TABLE Utilisateur
+(
+    id_utilisateur INT AUTO_INCREMENT,
+    login          varchar(50),
+    password       varchar(50),
+    PRIMARY KEY (id_utilisateur)
+);
+
+INSERT INTO Utilisateur (login, password)
+VALUES ('user1', 'password1'),
+       ('user2', 'password2');
+
 INSERT INTO Medecin (nom, prenom, civilite)
 VALUES ('Oskour', 'Jeanne', 1),
        ('Macon', 'Benoit', 0),
