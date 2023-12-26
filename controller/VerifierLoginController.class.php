@@ -27,15 +27,13 @@ class VerifierLoginController extends Controller
             [$this->login, $this->password]
         );
         session_start();
+
         if (count($results) == 1) {
             $_SESSION['user'] = 'user';
-            $this->redirect('/?action=Index', false);
+            $this->redirect('/Index', false);
         } else {
             $_SESSION['login_try'] = 'failed';
-            $this->redirect('/?action=Login', false);
+            $this->redirect('/Login', false);
         }
     }
 }
-
-
-new VerifierLoginController($_POST);

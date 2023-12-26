@@ -1,0 +1,14 @@
+RedirectMatch 403 ^/view/.*$
+RedirectMatch 403 ^/static/.*$
+RedirectMatch 403 ^/model/.*$
+RedirectMatch 403 ^/controller/.*$
+
+ErrorDocument 403 /?action=Erreur
+
+RewriteEngine On
+RewriteBase /
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)$ ?action=$1 [QSA,L]

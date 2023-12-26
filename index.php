@@ -12,27 +12,31 @@ session_start();
 /* On initialise l'utilisateur */
 if (!isset($_SESSION['user'])) {
     $_SESSION['user'] = 'visiteur';
-    Redirect('?action=Login', false);
+    Redirect('Login', false);
 }
 
 
 /* On recupere l'action */
 $action = $_GET['action'];
-/* On verifie si l'utilisateur est connecte */
-if (!isset($action) && $_SESSION['user'] == 'visiteur'){
-    Redirect('?action=Login', false);
-} elseif (isset($action) && $action != 'Login' && $_SESSION['user'] == 'visiteur') {
-    Redirect('?action=Login', false);
-} elseif (!isset($action) && $_SESSION['user'] == 'user') {
-    Redirect('?action=Index', false);
+if (str_contains($_SERVER['REQUEST_URI'], "?action=")) {
+    Redirect($action, false);
 }
 
-/* On initialise le theme */
+
+if (!isset($action) && $_SESSION['user'] == 'visiteur'){
+    Redirect('Login', false);
+} elseif (isset($action) && (!in_array($action, ["Login", "VerifierLogin"]) ) && $_SESSION['user'] == 'visiteur') {
+    Redirect('Login', false);
+} elseif (!isset($action) && $_SESSION['user'] == 'user') {
+    Redirect('Index', false);
+}
+
+
 if (!isset($_SESSION['theme'])) {
     $_SESSION['theme'] = 'dark';
 }
 
-/* On recupere le theme */
+
 if (isset($_POST['clair'])) {
     $_SESSION['theme'] = 'light';
 } elseif (isset($_POST['sombre'])) {
@@ -40,22 +44,20 @@ if (isset($_POST['clair'])) {
 }
 
 
-/* Decoupe l'url en liste */
 $action_list = explode('/', $action);
 
 if (isset($action_list[0])) {
-    /* On trouve le nom du controleur */
+
     $controller_name = $action_list[0] . 'Controller';
 
     try {
         require 'controller/'. $controller_name . '.class.php';
-        /* On instancie le controleur */
+
         $controller = new $controller_name($_POST);
     } catch (Error $e) {
-         echo ($e->getMessage());
-        /*Redirect('?action=Erreur', false); */
+         # echo ($e->getMessage());
+        Redirect('Erreur', false);
     }
 }
-
 
 

@@ -6,7 +6,7 @@ firstBlockBody();
 <div class="d-flex align-items-center justify-content-center" style="height: 70vh">
     <div class="w-75 mx-auto my-4">
         <h3 class="text-center mt-4">Informations du medecin :</h3>
-        <form method="post" action="/controller/GererMedecinController.class.php" name="formModifier" id="formModifier"
+        <form method="post" action="/GererMedecin" name="formModifier" id="formModifier"
               class="border rounded-4 py-4">
             <input type="hidden" name="id_medecin" id="id_medecin" value="<?= $this->medecin->getId(); ?>">
             <input type="hidden" name="action" id="action" value="modifier">
@@ -37,7 +37,7 @@ firstBlockBody();
                 </select>
             </div>
         </form>
-        <form method="post" action="/controller/GererMedecinController.class.php" name="formSupprimer"
+        <form method="post" action="/GererMedecin" name="formSupprimer"
               id="formSupprimer">
             <input type="hidden" name="id_medecin" id="id_medecin" value="<?= $this->medecin->getId(); ?>">
             <input type="hidden" name="action" id="action" value="supprimer">

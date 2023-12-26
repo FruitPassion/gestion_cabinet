@@ -9,7 +9,7 @@ class GererMedecinController extends Controller
     function __construct(array $post)
     {
         if (sizeof($post) == 0){
-            $this->redirect('/?action=AffichageMedecins', false);
+            $this->redirect('/AffichageMedecins', false);
         }
         parent::__construct();
         $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
@@ -30,7 +30,7 @@ class GererMedecinController extends Controller
                 break;
         }
 
-        $this->redirect('/?action=AffichageMedecins', false);
+        $this->redirect('/AffichageMedecins', false);
     }
 
     private function insererMedecin($post) : void {
@@ -70,5 +70,3 @@ class GererMedecinController extends Controller
         );
     }
 }
-
-new GererMedecinController($_POST);

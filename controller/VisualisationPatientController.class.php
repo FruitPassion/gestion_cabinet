@@ -10,7 +10,7 @@ class VisualisationPatientController extends Controller
     function __construct(array $post)
     {
         if (sizeof($post) == 0) {
-            $this->redirect('/?action=AffichagePatients', false);
+            $this->redirect('/AffichagePatients', false);
         }
         parent::__construct();
 

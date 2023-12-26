@@ -11,6 +11,6 @@ class LogoutController extends Controller
 
         session_start();
         session_destroy();
-        $this->redirect('/?action=Login', false);
+        $this->redirect('/Login', false);
     }
 }

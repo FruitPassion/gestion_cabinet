@@ -9,7 +9,7 @@ class VisualisationMedecinController extends Controller
     function __construct(array $post)
     {
         if (sizeof($post) == 0) {
-            $this->redirect('/?action=AffichageMedecins', false);
+            $this->redirect('/AffichageMedecins', false);
         }
         parent::__construct();
 

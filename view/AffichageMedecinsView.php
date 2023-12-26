@@ -31,7 +31,7 @@ firstBlockBody();
                         <div class="card-body">
                             <h5 class="card-title"><?= $medecin->getEtatCivil()->getNomPrenom() ?></h5>
                             <h6 class="card-subtitle mb-2 text-muted"><?= $medecin->getEtatCivil()->getCivilite(); ?></h6>
-                            <form method="post"  action="/?action=VisualisationMedecin">
+                            <form method="post"  action="/VisualisationMedecin">
                                 <input type="hidden" name="id_medecin" value="<?= $medecin->getId() ?>">
                                 <button type="submit" class="btn btn-primary">Voir les détails</button>
                             </form>

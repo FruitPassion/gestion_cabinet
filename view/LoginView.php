@@ -7,7 +7,7 @@ firstBlockBody();
     <div class="w-25 m-auto">
         <h3 class="text-center mt-4">Connexion</h3>
         <form name="login" class="border rounded-3 p-3" method="post"
-              action="/controller/VerifierLoginController.class.php">
+              action="/VerifierLogin">
             <?php if ($this->loginFailed): ?>
                 <div class="text-center">
                     <p class="text-bg-danger">Login ou mot de passe incorrect</p>
