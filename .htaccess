@@ -3,7 +3,7 @@ RedirectMatch 403 ^/static/.*$
 RedirectMatch 403 ^/model/.*$
 RedirectMatch 403 ^/controller/.*$
 
-ErrorDocument 403 /?action=Erreur
+ErrorDocument 403 /Erreur
 
 RewriteEngine On
 RewriteBase /
