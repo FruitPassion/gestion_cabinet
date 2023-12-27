@@ -1,5 +1,4 @@
 RedirectMatch 403 ^/view/.*$
-RedirectMatch 403 ^/static/.*$
 RedirectMatch 403 ^/model/.*$
 RedirectMatch 403 ^/controller/.*$
 
