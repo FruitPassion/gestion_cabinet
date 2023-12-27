@@ -9,8 +9,6 @@ function firstBlockBody() : void {
 }
 
 function secondBlockBody() : void {
-    global $rootDir;
-    require $rootDir . "/view/partial/footer.html";
     echo '</body>';
     echo '</html>';
 }
