@@ -42,7 +42,7 @@ firstBlockBody();
         </div>
         <div class="tab-pane fade" id="ajouter" role="tabpanel" aria-labelledby="ajouter-tab">
             <h3 class="text-center mt-4">Ajouter un medecin :</h3>
-            <form class="w-75 mx-auto my-4" method="post" action="/controller/GererMedecinController.class.php">
+            <form class="w-75 mx-auto my-4" method="post" action="/GererMedecin">
                 <input type="hidden" name="action" id="action" value="ajouter">
                 <div class="d-flex w-100">
                     <div class="mb-3 px-3 w-50">

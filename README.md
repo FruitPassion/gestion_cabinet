@@ -12,7 +12,7 @@ On peux ensuite accéder au site via l'adresse `http://localhost:41062/`
 
 ## Configuration de la base de données
 
-Le fichier de création de la base de données se nomme `gestion_cabinet.sql` et se trouve à la racine du projet.
+Le fichier de création de la base de données se nomme `sql/gestion_cabinet.sql` et se trouve à la racine du projet.
 
 Il est nécessaire de créer la base de donnée à l'aide de ce fichier dans le container.
 La connexion via un gestionnaire de base de données est possible en établissant un tunnel SSH sur le port 41061.

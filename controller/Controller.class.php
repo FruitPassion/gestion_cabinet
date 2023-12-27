@@ -46,6 +46,12 @@ class Controller
         $this->stmt->execute($data);
     }
 
+    protected function resetDataBase(): void {
+        require "sql/reset.sql";
+        $query = file_get_contents("sql/reset.sql");
+        $this->insertUpdateDelete($query);
+    }
+
     protected function redirect($url, $permanent = false): void
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);
