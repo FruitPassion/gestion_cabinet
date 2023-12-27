@@ -1,6 +1,7 @@
 RedirectMatch 403 ^/view/.*$
 RedirectMatch 403 ^/model/.*$
 RedirectMatch 403 ^/controller/.*$
+RedirectMatch 403 /\.git
 
 ErrorDocument 403 /Erreur
 
