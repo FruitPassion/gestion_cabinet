@@ -17,6 +17,10 @@ if (!isset($_SESSION['user'])) {
 
 # On recupere l'action
 $action = $_GET['action'];
+
+if (str_contains(substr($_SERVER['REQUEST_URI'], 1, -1), "/")) {
+    Redirect("/Login", false);
+}
 if (str_contains($_SERVER['REQUEST_URI'], "?action=")) {
     Redirect($action, false);
 }
@@ -27,6 +31,8 @@ if (!isset($action) && $_SESSION['user'] == 'visiteur') {
 } elseif (isset($action) && (!in_array($action, ["Login", "VerifierLogin"])) && $_SESSION['user'] == 'visiteur') {
     Redirect('Login', false);
 } elseif (!isset($action) && $_SESSION['user'] == 'user') {
+    Redirect('Index', false);
+} elseif (isset($action) && ($action == "Login" ) && $_SESSION['user'] == 'user') {
     Redirect('Index', false);
 }
 
