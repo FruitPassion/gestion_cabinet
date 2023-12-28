@@ -18,7 +18,7 @@
                     <ul class="dropdown-menu" aria-labelledby="dropdownActions">
                         <li><a href="/AffichagePatients" class="dropdown-item">Patients</a></li>
                         <li><a href="/AffichageMedecins" class="dropdown-item">Médecins</a></li>
-                        <li><a href="#" class="dropdown-item">Planning</a></li>
+                        <li><a href="/AffichageRendezVous" class="dropdown-item">Planning</a></li>
                         <li><a href="/Statistiques" class="dropdown-item">Statistiques</a></li>
                     </ul>
                 </div>

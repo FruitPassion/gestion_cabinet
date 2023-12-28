@@ -17,7 +17,7 @@ firstBlockBody($afficher = true);
         </div>
         <a href="/AffichageMedecins"><button class="btn btn-secondary">Voir les médecins</button></a>
         <a href="/AffichagePatients"><button class="btn btn-secondary">Voir les patients</button></a>
-        <a href="#"><button class="btn btn-secondary">Voir le planning</button></a>
+        <a href="/AffichageRendezVous"><button class="btn btn-secondary">Voir le planning</button></a>
         <a href="/Statistiques"><button class="btn btn-secondary">Voir les statistiques</button></a>
     </div>
 
