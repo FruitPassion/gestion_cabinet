@@ -39,7 +39,7 @@ firstBlockBody();
                     <tbody id="body-table" >
                     <?php foreach ($this->planning->getRendezVous() as $rdv): ?>
                         <tr>
-                            <th class="align-middle"><?= $rdv->getMedecin()->getEtatCivil()->getNomPrenom() ?></th>
+                            <td class="align-middle"><?= $rdv->getMedecin()->getEtatCivil()->getNomPrenom() ?></td>
                             <td class="align-middle"><?= $rdv->getPatient()->getEtatCivil()->getNomPrenom() ?></td>
                             <td class="text-center align-middle"><?php
                                 $date=date_create($rdv->getDate());
