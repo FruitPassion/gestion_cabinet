@@ -16,12 +16,12 @@ firstBlockBody();
             <div class="form-group my-3">
                 <label for="inputLogin" class="mb-2">Login</label>
                 <input type="text" class="form-control" id="inputLogin" name="inputLogin" aria-describedby="emailHelp"
-                       placeholder="Entrez votre login">
+                       placeholder="Entrez votre login : user1">
             </div>
             <div class="form-group my-3">
                 <label for="inputPassword" class="mb-2">Mot de passe</label>
                 <input type="password" class="form-control" id="inputPassword" name="inputPassword"
-                       placeholder="Entrez votre mot de passe">
+                       placeholder="Entrez votre mot de passe : password1">
             </div>
             <button type="submit" class="btn btn-primary form-control">Se connecter</button>
         </form>
