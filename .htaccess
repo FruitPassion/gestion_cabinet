@@ -5,6 +5,7 @@ RedirectMatch 403 ^/view/.*$
 RedirectMatch 403 ^/model/.*$
 RedirectMatch 403 ^/controller/.*$
 RedirectMatch 403 /\.
+RedirectMatch 403 ^/phpmyadmin/.*$
 
 ErrorDocument 403 /Login
 ErrorDocument 404 /Login
