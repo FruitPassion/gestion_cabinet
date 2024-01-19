@@ -2,6 +2,11 @@
 include $rootDir . "/view/BaseView.php";
 firstBlockBody();
 ?>
+    <?php foreach ($this->getErreurs() as $erreur): ?>
+        <div class="text-center">
+            <p class="text-bg-danger fs-5"><?= $erreur ?></p>
+        </div>
+    <?php endforeach; ?>
     <ul class="nav nav-tabs pt-5" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="patients-tab" data-bs-toggle="tab" data-bs-target="#patients"
@@ -41,13 +46,19 @@ firstBlockBody();
                         <tr>
                             <td class="align-middle"><?= $rdv->getMedecin()->getEtatCivil()->getNomPrenom() ?></td>
                             <td class="align-middle"><?= $rdv->getPatient()->getEtatCivil()->getNomPrenom() ?></td>
-                            <td class="text-center align-middle"><?php
-                                $date=date_create($rdv->getDate());
-                                echo date_format($date,"d/m/Y");
-                                ?></td>
+                            <td class="text-center align-middle">
+                                <?php $date=date_create($rdv->getDate());
+                                echo date_format($date,"d/m/Y");?></td>
                             <td class="text-center align-middle"><?= $rdv->getHeure() ?></td>
                             <td class="text-center align-middle" ><?= $rdv->getDuree() ?> minutes</td>
-                            <th scope="row"><a><button class="btn btn-primary form-control">Voir le rdv</button></a></th>
+                            <th scope="row">
+                                <form method="post"  action="/VisualisationRendezVous">
+                                    <input type="hidden" name="id_patient" value="<?= $rdv->getPatient()->getId() ?>">
+                                    <input type="hidden" name="id_medecin" value="<?= $rdv->getMedecin()->getId() ?>">
+                                    <input type="hidden" name="date_rdv" value="<?= $rdv->getDate() ?>">
+                                    <a><button type="submit" class="btn btn-primary form-control">Voir le rdv</button></a>
+                                </form>
+                            </th>
                         </tr>
                     <?php endforeach; ?>
                     </tbody>
@@ -57,7 +68,7 @@ firstBlockBody();
         </div>
         <div class="tab-pane fade" id="ajouter" role="tabpanel" aria-labelledby="ajouter-tab">
             <h3 class="text-center mt-4">Ajouter un Rendez-Vous :</h3>
-            <form class="w-75 mx-auto my-4" method="post" action="/GererPatient">
+            <form class="w-75 mx-auto my-4" method="post" action="/GererRendezVous">
                 <input type="hidden" name="action" id="action" value="ajouter">
                 <div class="d-flex w-100">
                     <div class="mb-3 px-3 w-50">
@@ -96,7 +107,7 @@ firstBlockBody();
                             $heureFin = 17;
                             $minuteFin = 30;
                             while ($heure < $heureFin || ($heure == $heureFin && $minute < $minuteFin)): ?>
-                                <option value="<?= sprintf("%02d", $heure) . ":" . sprintf("%02d", $minute) ?>">
+                                <option value="<?= sprintf("%02d", $heure) . ":" . sprintf("%02d", $minute) . ":00" ?>">
                                     <?= sprintf("%02d", $heure) . ":" . sprintf("%02d", $minute); ?></option>
                                 <?php $minute += 30;
                                 if ($minute == 60) {

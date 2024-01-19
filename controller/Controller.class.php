@@ -6,6 +6,8 @@ class Controller
     private ?PDO $pdo = null;
     private $stmt = null;
 
+    private array $erreurs = [];
+
     public function __construct()
     {
         $this->pdo = new PDO(
@@ -14,6 +16,11 @@ class Controller
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
         ]);
+
+        if (isset($_SESSION["erreurs"])){
+            $this->erreurs = $_SESSION["erreurs"];
+            unset($_SESSION["erreurs"]);
+        }
     }
 
     public function __destruct()
@@ -28,15 +35,13 @@ class Controller
 
     protected function selectFirst($sql, $data = null): false|array
     {
-        $this->stmt = $this->pdo->prepare($sql);
-        $this->stmt->execute($data);
+        $this->insertUpdateDelete($sql, $data);
         return $this->stmt->fetch();
     }
 
     protected function selectAll($sql, $data = null): false|array
     {
-        $this->stmt = $this->pdo->prepare($sql);
-        $this->stmt->execute($data);
+        $this->insertUpdateDelete($sql, $data);
         return $this->stmt->fetchAll();
     }
 
@@ -56,6 +61,10 @@ class Controller
     {
         header('Location: ' . $url, true, $permanent ? 301 : 302);
         exit();
+    }
+
+    protected function getErreurs(): array {
+        return $this->erreurs;
     }
 }
 

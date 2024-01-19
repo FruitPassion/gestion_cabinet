@@ -65,7 +65,7 @@ if (isset($action_list[0])) {
         require 'controller/ErreurController.class.php';
 
         $controller = new ErreurController(['error' => $e->getMessage()]);
-        # Redirect('Erreur', false);
+        Redirect('Erreur', false);
     }
 }
 

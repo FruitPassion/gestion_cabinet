@@ -3,6 +3,11 @@ include $rootDir . "/view/BaseView.php";
 firstBlockBody();
 ?>
 
+    <?php foreach ($this->getErreurs() as $erreur): ?>
+        <div class="text-center">
+            <p class="text-bg-danger fs-5"><?= $erreur ?></p>
+        </div>
+    <?php endforeach; ?>
     <ul class="nav nav-tabs pt-5" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="medecins-tab" data-bs-toggle="tab" data-bs-target="#medecins"

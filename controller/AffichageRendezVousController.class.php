@@ -5,7 +5,6 @@ require $rootDir . "/controller/Controller.class.php";
 class AffichageRendezVousController extends Controller
 {
     private Planning $planning;
-    private array $stats;
 
     function __construct(array $post)
     {

@@ -7,7 +7,7 @@ class Planning {
     private array $medecins = [];
     private array $patients = [];
 
-    public function __construct( array $medecins, array $patients, array $rendezVous)
+    public function __construct(array $medecins, array $patients, array $rendezVous)
     {
         $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
         require $rootDir."/model/EtatCivil.class.php";
@@ -75,6 +75,17 @@ class Planning {
     {
         return $this->rendezVous;
     }
+
+    public function getRendezVousParInfos(String $id_medecin, String $id_patient, String $date_rdv): RendezVous|null
+    {
+        foreach ($this->rendezVous as $rendezVous) {
+            if ($rendezVous->getMedecin()->getId() == $id_medecin && $rendezVous->getPatient()->getId() == $id_patient && $rendezVous->getDate() == $date_rdv) {
+                return $rendezVous;
+            }
+        }
+        return null;
+    }
+
 
     public function calculerStats(): array
     {

@@ -36,7 +36,7 @@ CREATE TABLE RendezVous
     date       DATE,
     heure      TIME,
     duree      int,
-    PRIMARY KEY (id_medecin, id_patient),
+    PRIMARY KEY (id_medecin, id_patient, date),
     FOREIGN KEY (id_medecin) REFERENCES Medecin (id_medecin),
     FOREIGN KEY (id_patient) REFERENCES Patient (id_patient)
 );

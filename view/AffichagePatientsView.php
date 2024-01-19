@@ -2,6 +2,11 @@
 include $rootDir . "/view/BaseView.php";
 firstBlockBody();
 ?>
+    <?php foreach ($this->getErreurs() as $erreur): ?>
+        <div class="text-center">
+            <p class="text-bg-danger fs-5"><?= $erreur ?></p>
+        </div>
+    <?php endforeach; ?>
     <ul class="nav nav-tabs pt-5" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="patients-tab" data-bs-toggle="tab" data-bs-target="#patients"
@@ -108,7 +113,7 @@ firstBlockBody();
                         <label for="medecinInput" class="form-label">Medecin referrant:</label>
                         <select class="form-select" name="medecinInput" id="medecinInput"
                                 aria-label="selectionner medecin">
-                            <option selected value="null">Aucun</option>
+                            <option selected value="aucun">Aucun</option>
                             <?php foreach ($this->medecins as $medecin): ?>
                                 <option value="<?= $medecin->getId() ?>"><?= $medecin->getEtatCivil()->getNomPrenom() ?></option>
                             <?php endforeach; ?>

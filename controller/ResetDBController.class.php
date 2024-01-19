@@ -12,7 +12,7 @@ class ResetDBController extends Controller
 
         $this->resetDataBase();
 
-        $this->redirect('/AffichageMedecins', false);
+        $this->redirect('/Index', false);
     }
 
 }

@@ -6,28 +6,29 @@ require $rootDir . "/controller/Controller.class.php";
 
 class GererMedecinController extends Controller
 {
+    private array $erreurs = [];
+
     function __construct(array $post)
     {
         if (sizeof($post) == 0){
             $this->redirect('/AffichageMedecins', false);
         }
         parent::__construct();
-        $rootDir = realpath($_SERVER["DOCUMENT_ROOT"]);
-
-        require $rootDir . "/model/EtatCivil.class.php";
-        require $rootDir . "/model/Patient.class.php";
-        require $rootDir . "/model/Medecin.class.php";
 
         switch($post["action"]){
             case "ajouter":
-                $this->insererMedecin($post);
+                $this->checkDataCreationMedecin($post);
                 break;
             case "modifier":
-                $this->updateMedecin($post);
+                $this->checkDataModificationMedecin($post);
                 break;
             case "supprimer":
                 $this->supprimerMedecin($post);
                 break;
+        }
+
+        if (count($this->erreurs) > 0) {
+            $_SESSION["erreurs"] = $this->erreurs;
         }
 
         $this->redirect('/AffichageMedecins', false);
@@ -69,4 +70,44 @@ class GererMedecinController extends Controller
             "DELETE FROM Medecin WHERE id_medecin = ?", [$post["id_medecin"]]
         );
     }
+
+    private function checkDataCreationMedecin($post) : void {
+        $this->checkDataMedecin($post);
+        if (count($this->erreurs) == 0) {
+            $this->insererMedecin($post);
+        }
+    }
+
+    private function checkDataModificationMedecin($post) : void {
+        $this->checkDataMedecin($post);
+        $this->checkMedecinExist($post);
+        if (count($this->erreurs) == 0) {
+            $this->updateMedecin($post);
+        }
+    }
+
+    private function checkDataMedecin($post): void
+    {
+        if (empty($post["nomInput"])) {
+            $this->erreurs[] = "Le nom du médecin est obligatoire";
+        }
+        if (empty($post["prenomInput"])) {
+            $this->erreurs[] = "Le prénom du médecin est obligatoire";
+        }
+        if (empty($post["civiliteInput"])) {
+            $this->erreurs[] = "La civilité du médecin est obligatoire";
+        } elseif ($post["civiliteInput"] != 1 && $post["civiliteInput"] != 0) {
+            $this->erreurs[] = "La civilité du médecin est invalide";
+        }
+    }
+
+    private function checkMedecinExist($post): void
+    {
+        $medecin = $this->selectFirst("SELECT * FROM Medecin WHERE id_medecin = ?;", [$post["id_medecin"]]);
+        if ($medecin == null) {
+            $this->erreurs[] = "Le médecin n'existe pas";
+        }
+    }
+
+
 }
