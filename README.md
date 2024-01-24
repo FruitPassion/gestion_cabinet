@@ -25,6 +25,7 @@ Pour la base de données le nom d'utilisateur est `root` et le mot de passe est 
 ## Liens
 
 - [github](https://github.com/FruitPassion/gestion_cabinet)
+- [demo du projet](https://gestion-cabinet.fruitpassion.fr/)
 
 Réalisé par :
 - [Raphael BOUDIN](https://github.com/FruitPassion)
