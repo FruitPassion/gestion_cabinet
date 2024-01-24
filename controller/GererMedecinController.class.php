@@ -93,9 +93,6 @@ class GererMedecinController extends Controller
         }
         if (empty($post["prenomInput"])) {
             $this->erreurs[] = "Le prénom du médecin est obligatoire";
-        }
-        if (empty($post["civiliteInput"])) {
-            $this->erreurs[] = "La civilité du médecin est obligatoire";
         } elseif ($post["civiliteInput"] != 1 && $post["civiliteInput"] != 0) {
             $this->erreurs[] = "La civilité du médecin est invalide";
         }

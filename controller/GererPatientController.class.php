@@ -60,7 +60,7 @@ class GererPatientController extends Controller
 
     private function updatePatient($post): void
     {
-        if ($post["medecinInput"] == "null") {
+        if ($post["medecinInput"] == "null" || $post["medecinInput"] == "aucun") {
             $post["medecinInput"] = null;
         }
         $this->insertUpdateDelete(
@@ -93,6 +93,9 @@ class GererPatientController extends Controller
     private function checkDataCreationPatient(array $post): void
     {
         $this->checkDataPatient($post);
+        if ($post["medecinInput"] == "null" || $post["medecinInput"] == "aucun"){
+            $post["medecinInput"] = null;
+        }
         if (count($this->erreurs) == 0) {
             $this->insererPatient($post);
         }
