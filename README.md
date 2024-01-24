@@ -20,3 +20,12 @@ La connexion via un gestionnaire de base de données est possible en établissan
 Le nom d'utilisateur est `root` et le mot de passe est `root` pour la connexion SSH.
 <br>
 Pour la base de données le nom d'utilisateur est `root` et le mot de passe est vide, le port est `3306`.
+
+
+## Liens
+
+- [github](https://github.com/FruitPassion/gestion_cabinet)
+
+Réalisé par :
+- [Raphael BOUDIN](https://github.com/FruitPassion)
+- [Hamza NANAHA](https://github.com/CaptainBoulbi)
